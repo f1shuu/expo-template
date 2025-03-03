@@ -1,10 +1,13 @@
 import { registerRootComponent } from 'expo';
 
 import Loader from './Loader';
+import ThemeProvider from './providers/ThemeProvider';
 
 export default function App() {
   return (
-    <Loader />
+    <ThemeProvider>
+      <Loader />
+    </ThemeProvider>
   )
 }
 

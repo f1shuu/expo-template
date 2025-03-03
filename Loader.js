@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react';
+import { Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+
+import { translate } from './providers/LanguageProvider';
+import { useTheme } from './providers/ThemeProvider';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function Loader() {
     const [isLoading, setIsLoading] = useState(true);
+
+    const theme = useTheme();
 
     useEffect(() => {
         const loadAppResources = async () => {
@@ -27,7 +33,7 @@ export default function Loader() {
     const styles = {
         container: {
             flex: 1,
-            backgroundColor: '#fff',
+            backgroundColor: theme.primary,
             alignItems: 'center',
             justifyContent: 'center'
         }
@@ -37,8 +43,8 @@ export default function Loader() {
         isLoading ? null : (
             <>
                 <View style={styles.container}>
-                    <StatusBar style="auto" />
-                    <Text>Hello world!</Text>
+                    <StatusBar style='auto' />
+                    <Text style={{ color: theme.secondary }}>{translate('helloWorld')}</Text>
                 </View>
             </>
         )
