@@ -1,24 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
-import { translate } from './providers/LanguageProvider';
-import { useTheme } from './providers/ThemeProvider';
+import MainScreen from './MainScreen';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function Loader() {
     const [isLoading, setIsLoading] = useState(true);
 
-    const theme = useTheme();
-
     useEffect(() => {
         const loadAppResources = async () => {
             try {
                 await Font.loadAsync({
-                    'fontName': require('path/to/font')
+                    'example': require('./assets/fonts/example.otf')
                 })
             } catch (error) {
                 console.error(error);
@@ -30,23 +25,7 @@ export default function Loader() {
         loadAppResources();
     }, [])
 
-    const styles = {
-        container: {
-            flex: 1,
-            backgroundColor: theme.primary,
-            alignItems: 'center',
-            justifyContent: 'center'
-        }
-    }
-
     return (
-        isLoading ? null : (
-            <>
-                <View style={styles.container}>
-                    <StatusBar style='auto' />
-                    <Text style={{ color: theme.secondary }}>{translate('helloWorld')}</Text>
-                </View>
-            </>
-        )
+        isLoading ? null : (<MainScreen />)
     )
 }
