@@ -1,5 +1,5 @@
 import * as Localization from 'expo-localization';
 
-import Translations from '../constants/Translations';
+import translations from '../constants/translations';
 
-export const translate = (key) => Translations[Localization.getLocales()[0].languageCode][key] || key;
+export const translate = (key) => translations[Localization.getLocales()[0].languageCode][key] || key;

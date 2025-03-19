@@ -1,6 +1,6 @@
 import { Dropdown } from 'react-native-element-dropdown';
 
-import Colors from '../constants/Colors';
+import colors from '../constants/colors';
 
 import { useTheme } from '../providers/ThemeProvider';
 
@@ -29,7 +29,7 @@ export default function CustomDropdown({ data, placeholder, value, onFocus, onBl
             style={styles.dropdown}
             containerStyle={styles.container}
             itemTextStyle={{ fontFamily: 'example', color: theme.secondary }}
-            placeholderStyle={{ fontFamily: 'example', color: Colors.placeholder }}
+            placeholderStyle={{ fontFamily: 'example', color: colors.placeholder }}
             selectedTextStyle={{ fontFamily: 'example', color: theme.primary }}
             activeColor={theme.primary}
             data={data}

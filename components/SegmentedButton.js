@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import Colors from '../constants/Colors';
+import colors from '../constants/colors';
 
 import { useTheme } from '../providers/ThemeProvider';
 
@@ -37,7 +37,7 @@ export default function SegmentedButton({ option1, option2, onOptionChange, sele
         <View style={styles.container}>
             <TouchableOpacity
                 onPress={() => { if (onOptionChange) onOptionChange(option1) }}
-                style={[styles.segment, selectedOption === option1 ? { backgroundColor: theme.secondary } : { backgroundColor: Colors.placeholder }]}
+                style={[styles.segment, selectedOption === option1 ? { backgroundColor: theme.secondary } : { backgroundColor: colors.placeholder }]}
                 disabled={selectedOption === option1}
                 activeOpacity={0.8}
             >
@@ -45,7 +45,7 @@ export default function SegmentedButton({ option1, option2, onOptionChange, sele
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => { if (onOptionChange) onOptionChange(option2) }}
-                style={[styles.segment, selectedOption === option2 ? { backgroundColor: theme.secondary } : { backgroundColor: Colors.placeholder }]}
+                style={[styles.segment, selectedOption === option2 ? { backgroundColor: theme.secondary } : { backgroundColor: colors.placeholder }]}
                 disabled={selectedOption === option2}
                 activeOpacity={0.8}
             >

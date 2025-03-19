@@ -1,13 +1,13 @@
 import { useColorScheme } from 'react-native';
 import { createContext, useContext } from 'react';
 
-import Themes from '../constants/Themes';
+import themes from '../constants/themes';
 
 const ThemeContext = createContext();
 
 export default function ThemeProvider({ children }) {
     const colorScheme = useColorScheme();
-    const currentTheme = Themes[colorScheme] || Themes.dark;
+    const currentTheme = themes[colorScheme] || themes.dark;
 
     return (
         <ThemeContext.Provider value={currentTheme}>

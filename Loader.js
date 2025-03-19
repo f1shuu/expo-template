@@ -7,10 +7,10 @@ import MainScreen from './MainScreen';
 SplashScreen.preventAutoHideAsync();
 
 export default function Loader() {
-    const [isLoading, setIsLoading] = useState(true);
+    const [fontsLoaded, setFontsLoaded] = useState(false);
 
     useEffect(() => {
-        const loadAppResources = async () => {
+        const loadFonts = async () => {
             try {
                 await Font.loadAsync({
                     'example': require('./assets/fonts/example.otf')
@@ -18,14 +18,17 @@ export default function Loader() {
             } catch (error) {
                 console.error(error);
             } finally {
-                setIsLoading(false);
-                await SplashScreen.hideAsync();
+                setFontsLoaded(true);
             }
         }
-        loadAppResources();
+        loadFonts();
     }, [])
 
-    return (
-        isLoading ? null : (<MainScreen />)
-    )
+    useEffect(() => {
+        if (fontsLoaded) SplashScreen.hideAsync();
+    }, [fontsLoaded])
+
+    if (!fontsLoaded) return null;
+
+    return <MainScreen />
 }
