@@ -3,14 +3,14 @@ import Modal from 'react-native-modal';
 
 import Button from './Button';
 
-import { useTheme } from '../providers/ThemeProvider';
+import { useSettings } from '../SettingsProvider';
 
 export default function CustomModal({ isVisible, text, twoButtons, buttonOneText, buttonOneOnPress, buttonTwoText, buttonTwoOnPress }) {
-    const theme = useTheme();
+    const { getColor } = useSettings();
 
     const styles = {
         modal: {
-            backgroundColor: theme.primary,
+            backgroundColor: getColor('primary'),
             position: 'absolute',
             bottom: 0,
             width: '100%',
@@ -21,7 +21,7 @@ export default function CustomModal({ isVisible, text, twoButtons, buttonOneText
         text: {
             fontFamily: 'example',
             fontSize: 18,
-            color: theme.secondary,
+            color: getColor('secondary'),
             textAlign: 'center',
             marginHorizontal: 40
         },

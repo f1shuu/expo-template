@@ -1,11 +1,12 @@
 import Loader from './Loader';
-import ThemeProvider from './providers/ThemeProvider';
+
+import SettingsProvider from './SettingsProvider';
 
 export default function App() {
   return (
-    <ThemeProvider>
+    <SettingsProvider>
       <Loader />
-    </ThemeProvider>
+    </SettingsProvider>
   )
 }
 

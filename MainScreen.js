@@ -8,21 +8,21 @@ import Dropdown from './components/Dropdown';
 import Modal from './components/Modal';
 import SegmentedButton from './components/SegmentedButton';
 
-import { translate } from './providers/LanguageProvider';
-import { useTheme } from './providers/ThemeProvider';
+import { useSettings } from './SettingsProvider';
 
 export default function MainScreen() {
     const [isFocus, setIsFocus] = useState(false);
     const [example, setExample] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const { getColor, translate } = useSettings();
+
     const [option, setOption] = useState(translate('option') + ' 1');
 
-    const theme = useTheme();
-
     const sampleData = [
-        { value: 'Example 1' },
-        { value: 'Example 2' },
-        { value: 'Example 3' }
+        { value: translate('option') + ' 1' },
+        { value: translate('option') + ' 2' },
+        { value: translate('option') + ' 3' }
     ]
 
     const styles = {
@@ -34,7 +34,7 @@ export default function MainScreen() {
         text: {
             fontFamily: 'example',
             fontSize: 20,
-            color: theme.secondary,
+            color: getColor('secondary'),
             textAlign: 'center'
         }
     }

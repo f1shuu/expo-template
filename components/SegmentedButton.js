@@ -2,15 +2,15 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import colors from '../constants/colors';
 
-import { useTheme } from '../providers/ThemeProvider';
+import { useSettings } from '../SettingsProvider';
 
 export default function SegmentedButton({ option1, option2, onOptionChange, selectedOption }) {
-    const theme = useTheme();
+    const { getColor } = useSettings();
 
     const styles = {
         container: {
             flexDirection: 'row',
-            height: 60,
+            height: 50,
             borderRadius: 15,
             overflow: 'hidden',
             marginVertical: 10
@@ -24,12 +24,12 @@ export default function SegmentedButton({ option1, option2, onOptionChange, sele
         activeText: {
             fontFamily: 'example',
             fontSize: 16,
-            color: theme.primary
+            color: getColor('primary')
         },
         inactiveText: {
             fontFamily: 'example',
             fontSize: 16,
-            color: theme.secondary
+            color: getColor('secondary')
         }
     }
 
@@ -37,7 +37,7 @@ export default function SegmentedButton({ option1, option2, onOptionChange, sele
         <View style={styles.container}>
             <TouchableOpacity
                 onPress={() => { if (onOptionChange) onOptionChange(option1) }}
-                style={[styles.segment, selectedOption === option1 ? { backgroundColor: theme.secondary } : { backgroundColor: colors.placeholder }]}
+                style={[styles.segment, selectedOption === option1 ? { backgroundColor: getColor('secondary') } : { backgroundColor: colors.placeholder }]}
                 disabled={selectedOption === option1}
                 activeOpacity={0.8}
             >
@@ -45,7 +45,7 @@ export default function SegmentedButton({ option1, option2, onOptionChange, sele
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => { if (onOptionChange) onOptionChange(option2) }}
-                style={[styles.segment, selectedOption === option2 ? { backgroundColor: theme.secondary } : { backgroundColor: colors.placeholder }]}
+                style={[styles.segment, selectedOption === option2 ? { backgroundColor: getColor('secondary') } : { backgroundColor: colors.placeholder }]}
                 disabled={selectedOption === option2}
                 activeOpacity={0.8}
             >

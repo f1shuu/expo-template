@@ -1,16 +1,16 @@
 import { View } from 'react-native';
 
-import { useTheme } from '../providers/ThemeProvider';
+import { useSettings } from '../SettingsProvider';
 
 export default function Container({ additionalStyle, children }) {
-    const theme = useTheme();
+    const { getColor } = useSettings();
 
     const styles = {
         container: {
             flex: 1,
             padding: 20,
             paddingBottom: 30,
-            backgroundColor: theme.primary
+            backgroundColor: getColor('primary')
         }
     }
 

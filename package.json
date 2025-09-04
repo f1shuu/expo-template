@@ -9,13 +9,14 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~52.0.37",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "expo": "^53.0.22",
     "expo-font": "^13.0.4",
-    "expo-localization": "^16.0.1",
-    "expo-splash-screen": "^0.29.22",
-    "expo-status-bar": "~2.0.1",
-    "react": "18.3.1",
-    "react-native": "0.76.7",
+    "expo-localization": "~16.1.6",
+    "expo-splash-screen": "~0.30.10",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-native": "0.79.5",
     "react-native-element-dropdown": "^2.12.4",
     "react-native-modal": "^14.0.0-rc.0"
   },
